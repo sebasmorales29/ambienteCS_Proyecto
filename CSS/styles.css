@@ -1,0 +1,61 @@
+body {
+    background-color: #393646; 
+    color: #f0f8ff; 
+}
+
+.navbar {
+    background-color: #393646 !important; 
+}
+
+.navbar-brand, .nav-link, .navbar-toggler-icon, .dropdown-item {
+    color: #f0f8ff !important; 
+}
+
+.navbar-toggler {
+    border-color: #f0f8ff; 
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffffff !important; 
+}
+
+.dropdown-menu {
+    background-color: #393646; 
+}
+
+.dropdown-item:hover {
+    background-color: #4c4c4c; 
+}
+
+.btn{
+    margin-top: 15px;
+    margin-left: 1px;
+}
+
+.formulario{
+    margin: 30px;
+}
+
+.form-select{
+    margin-bottom: 15px;
+}
+
+.tituloForm{
+    text-align: center;
+}
+
+.tituloIndex{
+    text-align: center;
+}
+
+.parrafoIndex{
+    text-align: center;
+}
+
+.formCitas{
+    margin: 30px;
+}
+
+.tituloCitas{
+    text-align: center;
+}
