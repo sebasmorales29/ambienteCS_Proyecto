@@ -1,61 +1,136 @@
+/* Variables de color */
+:root {
+    --background-color: #121212; /* Fondo oscuro */
+    --text-color: #e0e0e0;       /* Texto claro */
+    --navbar-bg: #1f1f1f;         /* Fondo del navbar */
+    --card-bg: #1e1e1e;           /* Fondo de las tarjetas */
+    --button-bg: #333;            /* Fondo de los botones */
+    --button-text: #fff;          /* Color del texto de los botones */
+    --dropdown-bg: #333;          /* Fondo del dropdown */
+    --dropdown-hover: #555;       /* Fondo del dropdown al pasar el ratón */
+    --link-hover: #bbb;           /* Color de los enlaces al pasar el ratón */
+}
+
+/* Estilos generales */
 body {
-    background-color: #393646; 
-    color: #f0f8ff; 
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Navbar */
 .navbar {
-    background-color: #393646 !important; 
+    background-color: var(--navbar-bg);
+    overflow: hidden;
 }
 
-.navbar-brand, .nav-link, .navbar-toggler-icon, .dropdown-item {
-    color: #f0f8ff !important; 
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-.navbar-toggler {
-    border-color: #f0f8ff; 
+.navbar .logo {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.navbar-nav .nav-link.active {
-    color: #ffffff !important; 
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-.dropdown-menu {
-    background-color: #393646; 
+.navbar .nav-links li {
+    margin-left: 20px;
 }
 
-.dropdown-item:hover {
-    background-color: #4c4c4c; 
+.navbar .nav-links a, .navbar .dropdown .dropbtn {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
 }
 
-.btn{
-    margin-top: 15px;
-    margin-left: 1px;
+.navbar .nav-links a:hover, .navbar .dropdown .dropbtn:hover {
+    background-color: var(--link-hover);
+    border-radius: 4px;
 }
 
-.formulario{
-    margin: 30px;
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
 }
 
-.form-select{
-    margin-bottom: 15px;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.tituloForm{
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--dropdown-hover);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--button-bg);
+    border: none;
+    color: var(--button-text);
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+/* Tarjetas y contenedores */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+}
+
+.card-title, .card-text {
+    color: var(--text-color);
+}
+
+/* Formulario */
+.form-control {
+    background-color: #333;
+    color: var(--text-color);
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #333;
+    color: var(--text-color);
+    border-color: #555;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--navbar-bg);
+    color: var(--text-color);
     text-align: center;
-}
-
-.tituloIndex{
-    text-align: center;
-}
-
-.parrafoIndex{
-    text-align: center;
-}
-
-.formCitas{
-    margin: 30px;
-}
-
-.tituloCitas{
-    text-align: center;
+    padding: 20px 0;
 }
