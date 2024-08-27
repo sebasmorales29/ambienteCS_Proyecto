@@ -37,3 +37,15 @@ CREATE TABLE IF NOT EXISTS reservas (
 --$username = "veteadmin";
 --$password = "123456";
 --$dbname = "clinica_veterinaria";
+
+--añadir un "activo" en la tabla servicios
+ALTER TABLE servicios ADD COLUMN available BOOLEAN DEFAULT TRUE;
+
+--manejar eliminacion en cascada
+ALTER TABLE reservas
+DROP FOREIGN KEY reservas_ibfk_2;
+
+ALTER TABLE reservas
+ADD CONSTRAINT reservas_ibfk_2
+FOREIGN KEY (service_id) REFERENCES servicios(id)
+ON DELETE CASCADE;
