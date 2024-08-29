@@ -1,8 +1,8 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "veteadmin";
-$password = "123456";
+$username = "root";
+$password = "";
 $dbname = "clinica_veterinaria";
 $conn = new mysqli($servername, $username, $password, $dbname);
 

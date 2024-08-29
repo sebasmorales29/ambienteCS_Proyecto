@@ -49,3 +49,13 @@ ALTER TABLE reservas
 ADD CONSTRAINT reservas_ibfk_2
 FOREIGN KEY (service_id) REFERENCES servicios(id)
 ON DELETE CASCADE;
+
+--tabla de contactos para almacenar los mensajes
+CREATE TABLE IF NOT EXISTS contactos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    asunto VARCHAR(150) NOT NULL,
+    mensaje TEXT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

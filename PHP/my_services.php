@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT reservas.id AS reserva_id, servicios.nombre, servicios.descripcion, servicios.precio 
+$sql = "SELECT reservas.id AS reserva_id, servicios.name, servicios.description, servicios.price, reservas.reservation_date 
         FROM reservas 
         JOIN servicios ON reservas.service_id = servicios.id 
         WHERE reservas.user_id = ?";
@@ -73,42 +73,50 @@ $result = $stmt->get_result();
     </div>
 </nav>
 
-    <div class="container mt-4">
-        <h2>Mis Servicios Reservados</h2>
-        <table class="table">
-            <thead>
+<div class="container mt-4">
+    <h2>Mis Servicios Reservados</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Fecha y hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo $row['nombre']; ?></td>
-                        <td><?php echo $row['descripcion']; ?></td>
-                        <td>$<?php echo $row['precio']; ?></td>
-                        <td>
-                            <form method="post" action="update_reservation.php" style="display:inline;">
-                                <input type="hidden" name="reservation_id" value="<?php echo $row['reserva_id']; ?>">
-                                <button type="submit" class="btn btn-warning btn-sm">Actualizar</button>
-                            </form>
-                            <form method="post" action="delete_reservation.php" style="display:inline;">
-                                <input type="hidden" name="reservation_id" value="<?php echo $row['reserva_id']; ?>">
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </div>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['description']; ?></td>
+                    <td>$<?php echo $row['price']; ?></td>
+                    <td>
+                    <form method="post" action="update_reservation.php" style="display:inline;">
+    <input type="hidden" name="reservation_id" value="<?php echo $row['reserva_id']; ?>">
+    <input type="datetime-local" name="new_date" value="<?php echo date('Y-m-d\TH:i', strtotime($row['reservation_date'])); ?>" required>
+    <button type="submit" class="btn btn-warning btn-sm">Actualizar</button>
+</form>
 
-    <!-- Aquí van los scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+                        <form method="post" action="delete_reservation.php" style="display:inline;">
+                            <input type="hidden" name="reservation_id" value="<?php echo $row['reserva_id']; ?>">
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- Aquí van los scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<?php
+$stmt->close();
+$conn->close();
+?>
