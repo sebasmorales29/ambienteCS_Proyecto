@@ -79,9 +79,7 @@ $conn->close();
                     <li class="nav-item">
                         <a class="nav-link" href="my_services.php">Mis Servicios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
-                    </li>
+                    
                 <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Iniciar Sesión</a>
@@ -91,6 +89,10 @@ $conn->close();
                     <a class="nav-link" href="services.php">Servicios</a>
                 </li>
                 <li class="nav-item">
+    <a class="nav-link" href="add_pet.php">Gestionar Mascotas</a>
+</li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contacto</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -98,10 +100,14 @@ $conn->close();
                         Opciones
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="option1.php">Opción 1</a>
-                        <a class="dropdown-item" href="option2.php">Opción 2</a>
+                        <a class="dropdown-item" href="products.php">Productos</a>
+                        
                     </div>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
+                    </li>
+            
             </ul>
         </div>
     </nav>

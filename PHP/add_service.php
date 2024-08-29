@@ -117,6 +117,10 @@ $conn->close();
                     <a class="nav-link" href="services.php">Servicios</a>
                 </li>
                 <li class="nav-item">
+    <a class="nav-link" href="add_pet.php">Gestionar Mascotas</a>
+</li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contacto</a>
                 </li>
                 <li class="nav-item dropdown">

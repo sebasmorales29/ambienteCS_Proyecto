@@ -59,3 +59,16 @@ CREATE TABLE IF NOT EXISTS contactos (
     mensaje TEXT NOT NULL,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+--tabla para mascotas
+CREATE TABLE IF NOT EXISTS mascotas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    raza VARCHAR(50),
+    edad INT,
+    peso DECIMAL(5, 2),
+    dueño_id INT,
+    historial_medico TEXT,
+    FOREIGN KEY (dueño_id) REFERENCES users(id) ON DELETE CASCADE
+);

@@ -81,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Opciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="option1.php">Opción 1</a>
-                    <a class="dropdown-item" href="option2.php">Opción 2</a>
+                    <a class="dropdown-item" href="products.php">Productos</a>
+                    
                 </div>
             </li>
         </ul>

@@ -68,8 +68,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a class="nav-link" href="services.php">Servicios</a>
             </li>
             <li class="nav-item">
+    <a class="nav-link" href="add_pet.php">Gestionar Mascotas</a>
+</li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contacto</a>
             </li>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="products.php">Productos</a>
+                        
+                    </div>
+                </li>
         </ul>
     </div>
 </nav>
